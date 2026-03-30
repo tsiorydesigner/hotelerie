@@ -1,0 +1,170 @@
+{
+  "rooms": [
+    {
+      "id": "standard-1",
+      "type": "standard",
+      "name": "Chambre Standard",
+      "description": "Chambre confortable avec lit double, salle de bain privée et Wi-Fi gratuit.",
+      "price": 89,
+      "capacity": 2,
+      "features": [
+        "Lit double",
+        "Wi-Fi gratuit",
+        "TV écran plat",
+        "Salle de bain privée",
+        "Climatisation",
+        "Minibar"
+      ],
+      "images": ["room-standard-1.jpg", "room-standard-2.jpg"],
+      "available": true
+    },
+    {
+      "id": "standard-2",
+      "type": "standard",
+      "name": "Chambre Standard Jumeaux",
+      "description": "Chambre avec deux lits simples, idéale pour les voyages d'affaires.",
+      "price": 89,
+      "capacity": 2,
+      "features": [
+        "Deux lits simples",
+        "Wi-Fi gratuit",
+        "TV écran plat",
+        "Salle de bain privée",
+        "Climatisation",
+        "Bureau"
+      ],
+      "images": ["room-standard-twin.jpg"],
+      "available": true
+    },
+    {
+      "id": "deluxe-1",
+      "type": "deluxe",
+      "name": "Chambre Deluxe",
+      "description": "Chambre spacieuse avec lit king-size, balcon et vue sur la ville.",
+      "price": 129,
+      "capacity": 2,
+      "features": [
+        "Lit king-size",
+        "Wi-Fi gratuit",
+        "TV 4K",
+        "Machine à café",
+        "Balcon",
+        "Climatisation",
+        "Minibar",
+        "Peignoir"
+      ],
+      "images": ["room-deluxe-1.jpg", "room-deluxe-2.jpg"],
+      "available": true
+    },
+    {
+      "id": "deluxe-2",
+      "type": "deluxe",
+      "name": "Chambre Deluxe Familiale",
+      "description": "Chambre deluxe avec espace supplémentaire pour les familles.",
+      "price": 149,
+      "capacity": 4,
+      "features": [
+        "Lit king-size + canapé-lit",
+        "Wi-Fi gratuit",
+        "TV 4K",
+        "Machine à café",
+        "Balcon",
+        "Climatisation",
+        "Minibar",
+        "Espace bureau"
+      ],
+      "images": ["room-deluxe-family.jpg"],
+      "available": true
+    },
+    {
+      "id": "suite-1",
+      "type": "suite",
+      "name": "Suite Executive",
+      "description": "Suite luxueuse avec salon séparé, jacuzzi et service premium.",
+      "price": 199,
+      "capacity": 2,
+      "features": [
+        "Lit king-size",
+        "Salon séparé",
+        "Jacuzzi",
+        "Mini-bar premium",
+        "Service premium",
+        "Wi-Fi gratuit",
+        "TV 4K dans salon et chambre",
+        "Machine à café",
+        "Balcon panoramique",
+        "Peignoirs et chaussons"
+      ],
+      "images": ["suite-executive-1.jpg", "suite-executive-2.jpg"],
+      "available": true
+    },
+    {
+      "id": "suite-2",
+      "type": "suite",
+      "name": "Suite Présidentielle",
+      "description": "La suite la plus luxueuse avec vue panoramique et services exclusifs.",
+      "price": 299,
+      "capacity": 4,
+      "features": [
+        "Lit king-size",
+        "Salon spacieux",
+        "Salle à manger",
+        "Jacuzzi privé",
+        "Mini-bar premium",
+        "Service concierge",
+        "Wi-Fi gratuit",
+        "TV 4K dans chaque pièce",
+        "Machine à café",
+        "Balcon panoramique",
+        "Peignoirs et chaussons",
+        "Service de chambre 24/7"
+      ],
+      "images": ["suite-presidential-1.jpg", "suite-presidential-2.jpg"],
+      "available": true
+    }
+  ],
+  "amenities": [
+    {
+      "id": "restaurant",
+      "name": "Restaurant",
+      "description": "Cuisine gastronomique française et internationale",
+      "icon": "utensils",
+      "available": true
+    },
+    {
+      "id": "pool",
+      "name": "Piscine",
+      "description": "Piscine extérieure chauffée avec bar",
+      "icon": "swimming-pool",
+      "available": true
+    },
+    {
+      "id": "spa",
+      "name": "Spa & Wellness",
+      "description": "Centre de bien-être avec sauna et massages",
+      "icon": "spa",
+      "available": true
+    },
+    {
+      "id": "gym",
+      "name": "Salle de sport",
+      "description": "Équipement moderne disponible 24/7",
+      "icon": "dumbbell",
+      "available": true
+    },
+    {
+      "id": "parking",
+      "name": "Parking",
+      "description": "Parking sécurisé gratuit pour nos clients",
+      "icon": "car",
+      "available": true
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi Gratuit",
+      "description": "Internet haut débit dans tout l'hôtel",
+      "icon": "wifi",
+      "available": true
+    }
+  ]
+}

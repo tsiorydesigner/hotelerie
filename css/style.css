@@ -1,0 +1,1262 @@
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header et Navigation */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo h1 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.nav-logo i {
+    color: #e74c3c;
+    margin-right: 10px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #e74c3c;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #e74c3c;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: heroTitleAnimation 1.5s ease-out;
+    transform: translateY(0);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    animation: heroSubtitleAnimation 2s ease-out 0.5s both;
+    transform: translateY(0);
+}
+
+.hero .btn-primary {
+    animation: heroButtonAnimation 2s ease-out 1s both;
+    transform: translateY(0);
+}
+
+/* Boutons */
+.btn-primary, .btn-secondary {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+.btn-secondary {
+    background: #3498db;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Quick Booking Section */
+.quick-booking {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.quick-booking h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+}
+
+.booking-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Rooms Section */
+.rooms {
+    padding: 4rem 0;
+}
+
+.rooms h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.room-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.room-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.room-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.room-price {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 15px;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.room-price .price {
+    color: #e74c3c;
+    font-size: 1.3rem;
+}
+
+.room-info {
+    padding: 2rem;
+}
+
+.room-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.room-info p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.room-features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.room-features li {
+    padding: 0.5rem 0;
+    color: #555;
+}
+
+.room-features i {
+    color: #3498db;
+    margin-right: 10px;
+    width: 20px;
+}
+
+/* Services Section */
+.services {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+/* ============================================================
+   Availability Section — Chambres disponibles
+   ============================================================ */
+.availability {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.availability h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.availability-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.availability-filter {
+    display: flex;
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto 2.5rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 150px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.filter-group input,
+.filter-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+#btnCheckAvailability {
+    white-space: nowrap;
+    padding: 10px 24px;
+}
+
+.availability-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+}
+
+.avail-room-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.avail-room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.avail-room-card.room-booked {
+    opacity: 0.7;
+}
+
+.avail-room-card.room-booked:hover {
+    transform: none;
+}
+
+.avail-room-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.avail-room-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.avail-room-card:hover .avail-room-image img {
+    transform: scale(1.05);
+}
+
+.avail-room-price {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.avail-room-price .price {
+    color: #e74c3c;
+    font-size: 1.1rem;
+}
+
+.room-status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.room-status.available {
+    background: #27ae60;
+    color: white;
+}
+
+.room-status.unavailable {
+    background: #e74c3c;
+    color: white;
+}
+
+.room-status.neutral {
+    background: rgba(255, 255, 255, 0.95);
+    color: #666;
+}
+
+.avail-room-info {
+    padding: 1.5rem;
+}
+
+.avail-room-info h3 {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.avail-room-info > p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.avail-room-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.avail-room-meta i {
+    color: #3498db;
+    margin-right: 5px;
+}
+
+.avail-room-features {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.avail-room-features li {
+    font-size: 0.85rem;
+    color: #555;
+    padding: 3px 0;
+}
+
+.avail-room-features i {
+    color: #3498db;
+    margin-right: 6px;
+    width: 16px;
+    font-size: 0.8rem;
+}
+
+.room-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 3px solid #e74c3c;
+}
+
+.room-total span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.room-total strong {
+    color: #e74c3c;
+    font-size: 1.1rem;
+}
+
+.room-book-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.room-book-btn.btn-primary {
+    background: #e74c3c;
+    color: white;
+}
+
+.room-book-btn.btn-primary:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.room-book-btn.btn-disabled {
+    background: #ccc;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.no-rooms-found {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.no-rooms-found i {
+    font-size: 3rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+}
+
+.no-rooms-found h3 {
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.no-rooms-found p {
+    color: #888;
+}
+
+.services h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.service-card p {
+    color: #666;
+}
+
+/* Reservations Section */
+.reservations {
+    padding: 4rem 0;
+}
+
+.reservations h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.booking-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.full-booking-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.price-summary {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.price-summary h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+/* Section Paiement */
+.payment-section {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    border: 1px solid #e0e0e0;
+}
+
+.payment-section h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.payment-methods {
+    display: grid;
+    gap: 2rem;
+}
+
+.payment-group h4 {
+    color: #34495e;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.mobile-money-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.payment-option {
+    cursor: pointer;
+    display: block;
+}
+
+.payment-radio {
+    display: none;
+}
+
+.payment-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.payment-radio:checked + .payment-card {
+    border-color: #3498db;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+    box-shadow: 0 4px 20px rgba(52, 152, 219, 0.2);
+}
+
+.payment-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.mvola-icon {
+    background: linear-gradient(135deg, #11a99b, #38c10bc7);
+}
+
+
+.orange-icon {
+    background: linear-gradient(135deg, #ff6900, #ff8515);
+}
+
+.airtel-icon {
+    background: linear-gradient(135deg, #ed1c24, #ff0000);
+}
+
+.visa-icon {
+    background: linear-gradient(135deg, #1a1f71, #1434cb);
+}
+
+.payment-info {
+    flex: 1;
+}
+
+.payment-info strong {
+    display: block;
+    color: #2c3e50;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.payment-info span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.payment-details {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    animation: slideDown 0.3s ease-out;
+}
+
+.payment-details .form-row {
+    margin-bottom: 1rem;
+}
+
+.payment-details .form-group {
+    margin-bottom: 1rem;
+}
+
+.payment-details label {
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.payment-details input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.payment-details input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.payment-button {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.payment-button:hover {
+    background: #219a52;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 500px;
+    }
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    .payment-section {
+        padding: 1.5rem;
+    }
+    
+    .mobile-money-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .payment-card {
+        padding: 0.8rem;
+    }
+    
+    .payment-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .payment-info strong {
+        font-size: 0.9rem;
+    }
+    
+    .payment-info span {
+        font-size: 0.8rem;
+    }
+}
+
+/* Contact Section */
+.contact {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #3498db;
+    min-width: 30px;
+}
+
+.contact-item h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.footer {
+    background: #2c3e50;
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    color: #ecf0f1;
+}
+
+.footer-map {
+    margin: 15px 0;
+    width: 100%;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #34495e;
+    border-radius: 50%;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #3498db;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #34495e;
+    color: #bdc3c7;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close:hover {
+    color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .rooms-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .availability-results {
+        grid-template-columns: 1fr;
+    }
+
+    .availability-filter {
+        flex-direction: column;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .room-info,
+    .full-booking-form,
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animations Hero Section */
+@keyframes heroTitleAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.8);
+        filter: blur(10px);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(-25px) scale(0.9);
+        filter: blur(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes heroSubtitleAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+        filter: blur(8px);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateX(-25px);
+        filter: blur(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes heroButtonAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.8);
+        filter: blur(5px);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateY(15px) scale(0.9);
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Navigation Animations */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.room-card,
+.service-card {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Loading spinner */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success message */
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border: 1px solid #c3e6cb;
+}
+
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border: 1px solid #f5c6cb;
+}

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hôtel Luxe - Réservations en ligne</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h1><i class="fas fa-hotel"></i> Hôtel le Bonheure </h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                    <li><a href="#chambres" class="nav-link">Chambres</a></li>
+                    <li><a href="#disponibilite" class="nav-link">Disponibilité</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#reservations" class="nav-link">Réservations</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h2>Bienvenue à l'Hôtel le Bonheure</h2>
+            <p>Une expérience de séjour inoubliable vous attend</p>
+            <a href="#reservations" class="btn-primary">Réserver maintenant</a>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Quick Booking -->
+    <section class="quick-booking">
+        <div class="container">
+            <h3>Réservation rapide</h3>
+            <form id="quickBookingForm" class="booking-form">
+                <div class="form-group">
+                    <label for="checkin">Date d'arrivée</label>
+                    <input type="date" id="checkin" name="checkin" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkout">Date de départ</label>
+                    <input type="date" id="checkout" name="checkout" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Nombre de personnes</label>
+                    <select id="guests" name="guests" required>
+                        <option value="1">1 personne</option>
+                        <option value="2">2 personnes</option>
+                        <option value="3">3 personnes</option>
+                        <option value="4">4 personnes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="roomType">Type de chambre</label>
+                    <select id="roomType" name="roomType" required>
+                        <option value="">Choisir...</option>
+                        <option value="standard">Standard</option>
+                        <option value="deluxe">Deluxe</option>
+                        <option value="suite">Suite</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-secondary">Vérifier la disponibilité</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="chambres" class="rooms">
+        <div class="container">
+            <h2>Nos Chambres</h2>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Chambre Standard">
+                        <div class="room-price">
+                            <span class="price">300.000 ar </span>
+                            <span>/ nuit</span>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3>Chambre Standard</h3>
+                        <p>Chambre confortable avec lit double, salle de bain privée et Wi-Fi gratuit.</p>
+                        <ul class="room-features">
+                            <li><i class="fas fa-bed"></i> Lit double</li>
+                            <li><i class="fas fa-wifi"></i> Wi-Fi gratuit</li>
+                            <li><i class="fas fa-tv"></i> TV écran plat</li>
+                            <li><i class="fas fa-shower"></i> Salle de bain</li>
+                        </ul>
+                        <button class="btn-primary" data-room-type="standard">Réserver</button>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Chambre Deluxe">
+                        <div class="room-price">
+                            <span class="price">450.000 ar</span>
+                            <span>/ nuit</span>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3>Chambre Deluxe</h3>
+                        <p>Chambre spacieuse avec lit king-size, balcon et vue sur la ville.</p>
+                        <ul class="room-features">
+                            <li><i class="fas fa-bed"></i> Lit king-size</li>
+                            <li><i class="fas fa-wifi"></i> Wi-Fi gratuit</li>
+                            <li><i class="fas fa-tv"></i> TV 4K</li>
+                            <li><i class="fas fa-coffee"></i> Machine à café</li>
+                            <li><i class="fas fa-balcony"></i> Balcon</li>
+                        </ul>
+                        <button class="btn-primary" data-room-type="deluxe">Réserver</button>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="https://images.unsplash.com/photo-1590490349119-b426d6171a5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Suite Executive">
+                        <div class="room-price">
+                            <span class="price">700.000 ar</span>
+                            <span>/ nuit</span>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3>Suite Executive</h3>
+                        <p>Suite luxueuse avec salon séparé, jacuzzi et service premium.</p>
+                        <ul class="room-features">
+                            <li><i class="fas fa-bed"></i> Lit king-size</li>
+                            <li><i class="fas fa-couch"></i> Salon séparé</li>
+                            <li><i class="fas fa-hot-tub"></i> Jacuzzi</li>
+                            <li><i class="fas fa-glass-cheers"></i> Mini-bar</li>
+                            <li><i class="fas fa-concierge-bell"></i> Service premium</li>
+                        </ul>
+                        <button class="btn-primary" data-room-type="suite">Réserver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Availability Section -->
+    <section id="disponibilite" class="availability">
+        <div class="container">
+            <h2>Chambres disponibles</h2>
+            <p class="availability-subtitle">Consultez toutes nos chambres et vérifiez les disponibilités en temps réel</p>
+            
+            <div class="availability-filter">
+                <div class="filter-group">
+                    <label for="availCheckin">Date d'arrivée</label>
+                    <input type="date" id="availCheckin" name="availCheckin">
+                </div>
+                <div class="filter-group">
+                    <label for="availCheckout">Date de départ</label>
+                    <input type="date" id="availCheckout" name="availCheckout">
+                </div>
+                <div class="filter-group">
+                    <label for="availGuests">Personnes</label>
+                    <select id="availGuests" name="availGuests">
+                        <option value="">Toutes</option>
+                        <option value="1">1 personne</option>
+                        <option value="2">2 personnes</option>
+                        <option value="3">3 personnes</option>
+                        <option value="4">4 personnes</option>
+                    </select>
+                </div>
+                <button type="button" id="btnCheckAvailability" class="btn-secondary">
+                    <i class="fas fa-search"></i> Vérifier
+                </button>
+            </div>
+
+            <div id="availabilityResults" class="availability-results">
+                <!-- Les chambres seront générées dynamiquement par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Nos Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Restaurant</h3>
+                    <p>Cuisine gastronomique française et internationale</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-swimming-pool"></i>
+                    <h3>Piscine</h3>
+                    <p>Piscine extérieure chauffée avec bar</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-spa"></i>
+                    <h3>Spa & Wellness</h3>
+                    <p>Centre de bien-être avec sauna et massages</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Salle de sport</h3>
+                    <p>Équipement moderne disponible 24/7</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-car"></i>
+                    <h3>Parking</h3>
+                    <p>Parking sécurisé gratuit pour nos clients</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-wifi"></i>
+                    <h3>Wi-Fi Gratuit</h3>
+                    <p>Internet haut débit dans tout l'hôtel</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservations Section -->
+    <section id="reservations" class="reservations">
+        <div class="container">
+            <h2>Réserver votre séjour</h2>
+            <div class="booking-container">
+                <div class="booking-form-container">
+                    <form id="bookingForm" class="full-booking-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Prénom</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Nom</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="checkinFull">Date d'arrivée</label>
+                                <input type="date" id="checkinFull" name="checkinFull" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkoutFull">Date de départ</label>
+                                <input type="date" id="checkoutFull" name="checkoutFull" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="roomTypeFull">Type de chambre</label>
+                                <select id="roomTypeFull" name="roomTypeFull" required>
+                                    <option value="">Choisir...</option>
+                                    <option value="standard">Standard - 300.000 ar /nuit</option>
+                                    <option value="deluxe">Deluxe - 450.000 ar /nuit</option>
+                                    <option value="suite">Suite - 700.000 ar /nuit</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="guestsFull">Nombre de personnes</label>
+                                <select id="guestsFull" name="guestsFull" required>
+                                    <option value="1">1 personne</option>
+                                    <option value="2">2 personnes</option>
+                                    <option value="3">3 personnes</option>
+                                    <option value="4">4 personnes</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="specialRequests">Demandes spéciales</label>
+                            <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Indiquez vos demandes spéciales..."></textarea>
+                        </div>
+                        <div class="price-summary">
+                            <h3>Récapitulatif</h3>
+                            <div id="priceDetails">
+                                <p>Veuillez sélectionner vos dates pour voir le prix total</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Section Paiement -->
+                        <div class="payment-section">
+                            <h3>Méthode de paiement</h3>
+                            <div class="payment-methods">
+                                <div class="payment-group">
+                                    <h4>Mobile Money</h4>
+                                    <div class="mobile-money-options">
+                                        <label class="payment-option">
+                                            <input type="radio" name="paymentMethod" value="mvola" class="payment-radio">
+                                            <div class="payment-card">
+                                                <div class="payment-icon mvola-icon">
+                                                    <i class="fas fa-mobile-alt"></i>
+                                                </div>
+                                                <div class="payment-info">
+                                                    <strong>MVOLA</strong>
+                                                    <span>Paiement par mobile money</span>
+                                                </div>
+                                            </div>
+                                        </label>
+                                        
+                                        <label class="payment-option">
+                                            <input type="radio" name="paymentMethod" value="orange-money" class="payment-radio">
+                                            <div class="payment-card">
+                                                <div class="payment-icon orange-icon">
+                                                    <i class="fas fa-mobile-alt"></i>
+                                                </div>
+                                                <div class="payment-info">
+                                                    <strong>Orange Money</strong>
+                                                    <span>Paiement par mobile money</span>
+                                                </div>
+                                            </div>
+                                        </label>
+                                        
+                                        <label class="payment-option">
+                                            <input type="radio" name="paymentMethod" value="airtel-money" class="payment-radio">
+                                            <div class="payment-card">
+                                                <div class="payment-icon airtel-icon">
+                                                    <i class="fas fa-mobile-alt"></i>
+                                                </div>
+                                                <div class="payment-info">
+                                                    <strong>Airtel Money</strong>
+                                                    <span>Paiement par mobile money</span>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="payment-group">
+                                    <h4>Carte bancaire</h4>
+                                    <label class="payment-option">
+                                        <input type="radio" name="paymentMethod" value="visa" class="payment-radio">
+                                        <div class="payment-card">
+                                            <div class="payment-icon visa-icon">
+                                                <i class="fab fa-cc-visa"></i>
+                                            </div>
+                                            <div class="payment-info">
+                                                <strong>Carte Visa</strong>
+                                                <span>Paiement sécurisé par carte bancaire</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Champs supplémentaires selon le moyen de paiement -->
+                            <div id="paymentDetails" class="payment-details" style="display: none;">
+                                <!-- Les champs seront ajoutés dynamiquement par JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Confirmer la réservation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contactez-nous</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Adresse</h3>
+                            <p>Antananarivo, Madagascar</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Téléphone</h3>
+                            <p>+261 34 12 345 67</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>reservation@hotellebonheure.mg</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Horaires</h3>
+                            <p>Réception: 24h/24<br>Restaurant: 12h-14h, 19h-22h</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Nom</label>
+                            <input type="text" id="contactName" name="contactName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" name="contactMessage" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Hôtel Luxe</h3>
+                    <p>Une expérience de séjour inoubliable au cœur de Paris.</p>
+                    <!-- Carte Google Maps intégrée -->
+                    <div class="footer-map">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15093.593855584822!2d47.51442435!3d-18.9032646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21f07e05680183b3%3A0x286e68022a188f5!2sAntananarivo%2C%20Madagascar!5e0!3m2!1sfr!2smg!4v1711200000000!5m2!1sfr!2smg" 
+                            width="100%" height="150" style="border:0; border-radius: 8px;" 
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#chambres">Chambres</a></li>
+                        <li><a href="#disponibilite">Disponibilité</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#reservations">Réservations</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Informations</h3>
+                    <ul>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Conditions générales</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hôtel Luxe. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de confirmation -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Réservation confirmée!</h2>
+            <p id="confirmationMessage"></p>
+            <button class="btn-primary" onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/email-config.js"></script>
+    <script src="js/script.js" defer></script>
+</body>
+</html>
