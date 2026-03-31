@@ -17,13 +17,14 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <h1><i class="fas fa-hotel"></i> Hôtel le Bonheure </h1>
+                    <h1><i class="fas fa-hotel"></i> Oasis des Sept Rêves </h1>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="#accueil" class="nav-link">Accueil</a></li>
                     <li><a href="#chambres" class="nav-link">Chambres</a></li>
                     <li><a href="#disponibilite" class="nav-link">Disponibilité</a></li>
                     <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#room-videos" class="nav-link">Vidéos</a></li>
                     <li><a href="#reservations" class="nav-link">Réservations</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
@@ -38,10 +39,28 @@
 
     <!-- Hero Section -->
     <section id="accueil" class="hero">
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
         <div class="hero-content">
-            <h2>Bienvenue à l'Hôtel le Bonheure</h2>
+            <h2>Bienvenue à l'hotel Oasis des Sept Rêves</h2>
             <p>Une expérience de séjour inoubliable vous attend</p>
             <a href="#reservations" class="btn-primary">Réserver maintenant</a>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <span>Scroll</span>
         </div>
         <div class="hero-overlay"></div>
     </section>
@@ -73,6 +92,7 @@
                     <select id="roomType" name="roomType" required>
                         <option value="">Choisir...</option>
                         <option value="standard">Standard</option>
+                        <option value="standard-jumeaux">Standard Jumeaux</option>
                         <option value="deluxe">Deluxe</option>
                         <option value="suite">Suite</option>
                     </select>
@@ -86,6 +106,7 @@
     <section id="chambres" class="rooms">
         <div class="container">
             <h2>Nos Chambres</h2>
+            <p class="rooms-subtitle">Découvrez nos chambres luxueuses conçues pour votre confort absolu</p>
             <div class="rooms-grid">
                 <div class="room-card">
                     <div class="room-image">
@@ -110,14 +131,41 @@
 
                 <div class="room-card">
                     <div class="room-image">
-                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Chambre Deluxe">
+                        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Chambre Standard Jumeaux">
+                        <div class="room-price">
+                            <span class="price">350.000 ar </span>
+                            <span>/ nuit</span>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3>Chambre Standard Jumeaux</h3>
+                        <p>Chambre confortable avec deux lits simples, salle de bain privée et Wi-Fi gratuit.</p>
+                        <ul class="room-features">
+                            <li><i class="fas fa-bed"></i> 2 lits simples</li>
+                            <li><i class="fas fa-wifi"></i> Wi-Fi gratuit</li>
+                            <li><i class="fas fa-tv"></i> TV écran plat</li>
+                            <li><i class="fas fa-shower"></i> Salle de bain</li>
+                        </ul>
+                        <button class="btn-primary" data-room-type="standard-jumeaux">Réserver</button>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image room-image-video">
+                        <video poster="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" muted loop>
+                            <source src="video/%23chambre %23luxe.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la lecture vidéo.
+                        </video>
+                        <div class="video-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
                         <div class="room-price">
                             <span class="price">450.000 ar</span>
                             <span>/ nuit</span>
                         </div>
                     </div>
                     <div class="room-info">
-                        <h3>Chambre Deluxe</h3>
+                        <h3>Chambre Deluxe <span class="video-tag">#chambre #luxe</span></h3>
                         <p>Chambre spacieuse avec lit king-size, balcon et vue sur la ville.</p>
                         <ul class="room-features">
                             <li><i class="fas fa-bed"></i> Lit king-size</li>
@@ -132,7 +180,7 @@
 
                 <div class="room-card">
                     <div class="room-image">
-                        <img src="https://images.unsplash.com/photo-1590490349119-b426d6171a5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Suite Executive">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Suite Executive">
                         <div class="room-price">
                             <span class="price">700.000 ar</span>
                             <span>/ nuit</span>
@@ -230,6 +278,92 @@
         </div>
     </section>
 
+    <!-- Room Videos Section -->
+    <section id="room-videos" class="room-videos">
+        <div class="container">
+            <h2>Extrait de nos services de chambre</h2>
+            <p class="section-subtitle">Découvrez nos chambres à travers ces vidéos immersives</p>
+            
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls>
+                            <source src="video/Modern Tropical House Design Perfection (3 Bedrooms - 236sqm-2540sqft).mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la lecture vidéo.
+                        </video>
+                        <div class="video-overlay-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Chambre Standard</h3>
+                        <p>Découvrez le confort et l'élégance de nos chambres standards</p>
+                        <a href="video/Modern Tropical House Design Perfection (3 Bedrooms - 236sqm-2540sqft).mp4" download class="download-btn">
+                            <i class="fas fa-download"></i> Télécharger
+                        </a>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls>
+                            <source src="video/Douche moderne COLOREE - LE LUXE C'EST DANS LE DETAIL.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la lecture vidéo.
+                        </video>
+                        <div class="video-overlay-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Suite Executive</h3>
+                        <p>Profitez du luxe ultime dans notre suite executive avec services premium</p>
+                        <a href="video/Douche moderne COLOREE - LE LUXE C'EST DANS LE DETAIL.mp4" download class="download-btn">
+                            <i class="fas fa-download"></i> Télécharger
+                        </a>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls>
+                            <source src="video/%23chambre %23luxe.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la lecture vidéo.
+                        </video>
+                        <div class="video-overlay-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Chambre de Luxe</h3>
+                        <p>Découvrez l'élégance et le raffinement de nos chambres de luxe</p>
+                        <a href="video/%23chambre %23luxe.mp4" download class="download-btn">
+                            <i class="fas fa-download"></i> Télécharger
+                        </a>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls>
+                            <source src="video/Modern Tropical House Design Perfection (3 Bedrooms - 236sqm-2540sqft).mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la lecture vidéo.
+                        </video>
+                        <div class="video-overlay-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Suite Familiale</h3>
+                        <p>Un espace spacieux et confortable pour toute la famille</p>
+                        <a href="video/Modern Tropical House Design Perfection (3 Bedrooms - 236sqm-2540sqft).mp4" download class="download-btn">
+                            <i class="fas fa-download"></i> Télécharger
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Reservations Section -->
     <section id="reservations" class="reservations">
         <div class="container">
@@ -273,6 +407,7 @@
                                 <select id="roomTypeFull" name="roomTypeFull" required>
                                     <option value="">Choisir...</option>
                                     <option value="standard">Standard - 300.000 ar /nuit</option>
+                                    <option value="standard-jumeaux">Standard Jumeaux - 350.000 ar /nuit</option>
                                     <option value="deluxe">Deluxe - 450.000 ar /nuit</option>
                                     <option value="suite">Suite - 700.000 ar /nuit</option>
                                 </select>

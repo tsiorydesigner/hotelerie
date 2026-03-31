@@ -5,6 +5,7 @@ let currentBooking = {};
 // Prix des chambres (en Ariary)
 const roomPrices = {
     standard: 300000,
+    'standard-jumeaux': 350000,
     deluxe: 450000,
     suite: 700000
 };
@@ -23,13 +24,13 @@ const allRooms = [
     },
     {
         id: 'standard-2',
-        type: 'standard',
+        type: 'standard-jumeaux',
         name: 'Chambre Standard Jumeaux',
         description: 'Chambre avec deux lits simples, idéale pour les voyages d\'affaires.',
-        price: 300000,
+        price: 350000,
         capacity: 2,
         features: ['Deux lits simples', 'Wi-Fi gratuit', 'TV écran plat', 'Salle de bain privée', 'Climatisation', 'Bureau'],
-        image: 'https://images.unsplash.com/photo-1590490362386-8bf30ace995e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+        image: 'https://images.unsplash.com/photo-1595576508898-0ad5c879a061?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
     },
     {
         id: 'deluxe-1',
@@ -59,7 +60,7 @@ const allRooms = [
         price: 700000,
         capacity: 2,
         features: ['Lit king-size', 'Salon séparé', 'Jacuzzi', 'Mini-bar premium', 'Service premium', 'Balcon panoramique'],
-        image: 'https://images.unsplash.com/photo-1590490349119-b426d6171a5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+        image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
     },
     {
         id: 'suite-2',
@@ -111,6 +112,15 @@ function initializeApp() {
     
     // Section disponibilité des chambres
     setupAvailabilitySection();
+
+    // Gestion des vidéos de chambre
+    setupRoomVideos();
+
+    // Vidéo dans la card Deluxe
+    setupDeluxeCardVideo();
+
+    // Animations au scroll (reveal)
+    setupScrollRevealAnimations();
 }
 
 // Menu mobile
@@ -596,7 +606,7 @@ function renderRoomCard(room) {
             statusBadge = '<span class="room-status unavailable"><i class="fas fa-times-circle"></i> Réservée</span>';
         }
     } else {
-        statusBadge = '<span class="room-status neutral"><i class="fas fa-info-circle"></i> Sélectionnez des dates</span>';
+        statusBadge = '';
     }
 
     // Calculer le nombre de nuits et le total si dates sélectionnées
@@ -699,6 +709,60 @@ function filterRooms() {
     renderAllRooms(filtered);
 }
 
+// Gestion des vidéos (Lecture/Pause au clic)
+function setupRoomVideos() {
+    const containers = document.querySelectorAll('.video-container');
+    
+    containers.forEach(container => {
+        const video = container.querySelector('video');
+        const card = container.closest('.video-card');
+
+        container.style.cursor = 'pointer';
+
+        container.addEventListener('click', () => {
+            if (video.paused) {
+                // Optionnel : Arrêter les autres vidéos qui tournent
+                document.querySelectorAll('video').forEach(v => v.pause());
+                
+                video.play();
+                card.classList.add('video-playing');
+            } else {
+                video.pause();
+                card.classList.remove('video-playing');
+            }
+        });
+
+        // Synchroniser si l'utilisateur utilise les contrôles natifs du navigateur
+        video.addEventListener('play', () => card.classList.add('video-playing'));
+        video.addEventListener('pause', () => card.classList.remove('video-playing'));
+        video.addEventListener('ended', () => card.classList.remove('video-playing'));
+    });
+}
+
+// Vidéo intégrée dans la card Chambre Deluxe
+function setupDeluxeCardVideo() {
+    const videoContainer = document.querySelector('.room-image-video');
+    if (!videoContainer) return;
+
+    const video = videoContainer.querySelector('video');
+    if (!video) return;
+
+    videoContainer.addEventListener('click', () => {
+        if (video.paused) {
+            video.muted = false;
+            video.play();
+            videoContainer.classList.add('video-playing');
+        } else {
+            video.pause();
+            videoContainer.classList.remove('video-playing');
+        }
+    });
+
+    video.addEventListener('play', () => videoContainer.classList.add('video-playing'));
+    video.addEventListener('pause', () => videoContainer.classList.remove('video-playing'));
+    video.addEventListener('ended', () => videoContainer.classList.remove('video-playing'));
+}
+
 // Mise à jour de l'affichage du prix
 function updatePriceDisplay() {
     const checkin = document.getElementById('checkinFull').value;
@@ -747,6 +811,7 @@ function calculateTotalPrice(checkin, checkout, roomType) {
 function getRoomTypeName(roomType) {
     const names = {
         standard: 'Standard',
+        'standard-jumeaux': 'Standard Jumeaux',
         deluxe: 'Deluxe',
         suite: 'Suite'
     };
@@ -1456,4 +1521,53 @@ function hideProcessingPayment() {
     if (processingDiv) {
         processingDiv.remove();
     }
+}
+
+// ==========================================
+// Scroll Reveal Animations (Intersection Observer)
+// ==========================================
+function setupScrollRevealAnimations() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -80px 0px',
+        threshold: 0.1
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-active');
+                
+                const cards = entry.target.querySelectorAll('.room-card, .avail-room-card');
+                cards.forEach(card => {
+                    card.classList.add('revealed');
+                });
+
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.rooms, .availability').forEach(section => {
+        revealObserver.observe(section);
+    });
+
+    const cardObserverOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.05
+    };
+
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                cardObserver.unobserve(entry.target);
+            }
+        });
+    }, cardObserverOptions);
+
+    document.querySelectorAll('.room-card, .avail-room-card').forEach(card => {
+        cardObserver.observe(card);
+    });
 }
